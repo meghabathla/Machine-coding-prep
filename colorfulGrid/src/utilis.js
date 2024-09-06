@@ -12,6 +12,7 @@ export function getRandomColor(limit) {
 
   for (let i = 0; i < limit; i++) {
     let color = _getRandomColor();
+
     while (seen.has(color)) {
       color = _getRandomColor();
     }

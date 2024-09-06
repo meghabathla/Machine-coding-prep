@@ -8,8 +8,6 @@ const Game = ({ total }) => {
   const [activeColors, setActiveColors] = useState([]);
   const [revealedColors, setRevealedColors] = useState(new Set());
   const [roundCount, setRoundCount] = useState(0);
-  console.log(activeColors);
-  console.log(revealedColors);
 
   const boxes = useMemo(() => {
     // create no of boxes
