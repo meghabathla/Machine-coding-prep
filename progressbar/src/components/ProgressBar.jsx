@@ -9,9 +9,7 @@ const ProgressBar = ({ value = 0, onRenderLabel }) => {
   return (
     <>
       <div className="progress">
-        <span style={{ color: percentage > 49 ? "white" : "black" }}>
-          {percentage.toFixed()}%
-        </span>
+        <span style={{ color: "black" }}>{percentage.toFixed()}%</span>
         <div
           // style={{ width: `${percentage}%` }}
           style={{
