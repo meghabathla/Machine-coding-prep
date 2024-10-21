@@ -10,21 +10,22 @@ function App() {
   const [counter, setCounter] = useState(0);
 
   const startTimer = () => {
+    setValue(0); // Reset progress to 0
+    setCounter(0); // Reset the counter
     setIsStarted(true);
     const incrementBy = 100 / time;
 
     const interval = setInterval(() => {
       setValue((val) => {
         if (val >= 100) {
-          setIsStarted(false);
           clearInterval(interval);
+          setIsStarted(false);
+
+          setCounter(0);
           return 100;
         } else {
           const result = val + incrementBy;
-          setCounter((counter) => {
-            console.log(`counter`, counter);
-            return counter + 1;
-          });
+          setCounter((counter) => counter + 1);
 
           return result;
         }
