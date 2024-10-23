@@ -5,11 +5,11 @@ interface TimeDelayProps {
   delay: number;
 }
 
-const AutoProgressBar = ({ delay = 1000 }: TimeDelayProps) => {
+const AutoProgressBar: React.FC<TimeDelayProps> = ({ delay = 1000 }) => {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    let timer;
+    let timer: number;
 
     timer = setInterval(() => {
       setValue((prevValue) => {

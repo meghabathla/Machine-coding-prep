@@ -2,10 +2,10 @@ import { useState } from "react";
 import "./App.css";
 import AutoProgressBar from "./components/AutoProgressBar";
 
-function App(): React.FC {
-  const [progressBars, setProgressBars] = useState([]);
+const App: React.FC = () => {
+  const [progressBars, setProgressBars] = useState<number[]>([]);
 
-  const handleAddProgressBar = () => {
+  const handleAddProgressBar = (): void => {
     setProgressBars((prev) => {
       if (prev.length === 0) return [1];
       const newBar = prev[prev.length - 1] + 1;
@@ -17,13 +17,10 @@ function App(): React.FC {
       <button onClick={handleAddProgressBar}>Add Progress bar</button>
       <br />
       {progressBars.map((bar) => {
-        return <AutoProgressBar key={bar} />;
+        return <AutoProgressBar key={bar} delay={1000} />;
       })}
     </div>
   );
-}
+};
 
 export default App;
-
-// only add button showing--
-//clicking on Add button progress button will show and start filling
