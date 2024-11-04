@@ -1,0 +1,17 @@
+.parent {
+}
+
+.folder {
+  padding-left: 16px;
+}
+
+.folder-h4 {
+  font-weight: 900;
+  background-color: transparent;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+}
+.file {
+  padding-left: 16px;
+}
