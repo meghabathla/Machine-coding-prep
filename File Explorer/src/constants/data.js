@@ -1,53 +1,67 @@
+export const TYPE = {
+  FILE: "FILE",
+  DIRECTORY: "DIRECTORY",
+};
+
+export const FILE_TYPE_TO_ICON_MAP = {
+  [TYPE.FILE]: "📄",
+  [TYPE.DIRECTORY]: "📁",
+};
+
 export const data = [
   {
-    id: 1,
+    id: "1",
     name: "README.md",
-    type: "directory",
+    type: TYPE.FILE,
   },
   {
-    id: 2,
+    id: "2",
     name: "Documents",
-    type: "directory",
+    type: TYPE.DIRECTORY,
+
     children: [
       {
-        id: 3,
+        id: "3",
         name: "Word.doc",
-        type: "file",
+        type: TYPE.FILE,
       },
       {
-        id: 4,
+        id: "4",
         name: "Powerpoint.ppt",
-        type: "file",
+        type: TYPE.FILE,
       },
     ],
   },
   {
-    id: 5,
+    id: " 5",
     name: "Downloads",
-    type: "directory",
+    type: TYPE.DIRECTORY,
+
     children: [
       {
-        id: 6,
+        id: "6",
         name: "unnamed.txt",
-        type: "file",
+        type: TYPE.FILE,
       },
       {
-        id: 7,
+        id: "7",
         name: "Misc",
-        type: "directory",
+        type: TYPE.DIRECTORY,
         children: [
           {
-            id: 8,
+            id: "8",
             name: "foo.txt",
-            type: "file",
+            type: TYPE.FILE,
           },
           {
-            id: 9,
+            id: "9",
             name: "bar.txt",
-            type: "file",
+            type: TYPE.FILE,
           },
         ],
       },
     ],
   },
 ];
+
+// constant object
