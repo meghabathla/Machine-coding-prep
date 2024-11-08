@@ -1,7 +1,14 @@
 import React, { useState } from "react";
-import { FILE_TYPE_TO_ICON_MAP, TYPE } from "../constants/data";
+import {
+  FILE_TYPE_TO_ICON_MAP,
+  FileAndFolderData,
+  TYPE,
+} from "../constants/data";
 
-function getHasChildren(element) {
+interface FileRenderData {
+  element: FileAndFolderData[];
+}
+function getHasChildren(element: FileAndFolderData): boolean {
   const hasChildren =
     element.children &&
     Array.isArray(element.children) &&
@@ -10,7 +17,7 @@ function getHasChildren(element) {
   return hasChildren; // returning true/false
 }
 
-export const FileRenderer = ({ element }) => {
+export const FileRenderer = ({ element }: FileRenderData) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const handleExpand = () => {
     setIsExpanded((prevExpandedValue) => !prevExpandedValue);

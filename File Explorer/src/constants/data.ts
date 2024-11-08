@@ -1,14 +1,20 @@
 export const TYPE = {
   FILE: "FILE",
   DIRECTORY: "DIRECTORY",
-};
+} as const;
 
-export const FILE_TYPE_TO_ICON_MAP = {
+export const FILE_TYPE_TO_ICON_MAP: Record<string, string> = {
   [TYPE.FILE]: "📄",
   [TYPE.DIRECTORY]: "📁",
 };
 
-export const data = [
+export interface FileAndFolderData {
+  id: string;
+  name: string;
+  type: string;
+  children?: FileAndFolderData[];
+}
+export const data: FileAndFolderData[] = [
   {
     id: "1",
     name: "README.md",
@@ -63,5 +69,3 @@ export const data = [
     ],
   },
 ];
-
-// constant object
