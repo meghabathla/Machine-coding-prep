@@ -7,7 +7,7 @@
   height: 0px;
   overflow: hidden;
 }
-.active .content {
-  height: 40px;
+.active.content {
+  height: auto;
   background-color: rgb(193, 233, 132);
 }

@@ -1,10 +1,11 @@
 const accordians = document.querySelectorAll(".accordian");
-const title = document.querySelector(".title");
-const content = document.querySelector(".content");
 
 for (let i = 0; i < accordians.length; i++) {
   accordians[i].addEventListener("click", function () {
-    this.classList.toggle("active");
-    console.log(accordians[i]);
+    const accordian = accordians[i]; // htmlnode
+    const content = accordian.querySelector(".content");
+    content.classList.toggle("active");
   });
 }
+//CSS selectors
+//htmlnode vs htmlnodelist
