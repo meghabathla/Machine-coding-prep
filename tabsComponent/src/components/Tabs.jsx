@@ -7,6 +7,9 @@ const Tabs = (props) => {
   const handleClick = (value) => {
     setState(value);
   };
+  const filteredArray = props.tabs.filter((tab) => {
+    return tab.value === state;
+  });
 
   return (
     <div>
@@ -22,9 +25,7 @@ const Tabs = (props) => {
         );
       })}
 
-      {props.tabs.filter((tab) => {
-        if (tab.value === state) tab.content;
-      })}
+      <p>{filteredArray[0]?.content}</p>
     </div>
   );
 };
