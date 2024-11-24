@@ -1,30 +1,33 @@
 // "fa fa-star"
 // "fa fa-star-o"
-
-const toggleStar = (starElement, el, index, state) => {
-  starElement.addEventListener("mouseover", () => {
-    const containerElement = document.querySelector(el);
-    for (let i = 0; i < containerElement.children.length; i++) {
-      if (i <= index) {
-        containerElement.children[i].classList.remove("fa-star");
-        containerElement.children[i].classList.remove("fa-star-o");
-        containerElement.children[i].classList.add("fa-star"); // to add filled star
-      } else {
-        // disable class "fa fa-star-o"
-        containerElement.children[i].classList.remove("fa-star");
-        containerElement.children[i].classList.remove("fa-star-o");
-        containerElement.children[i].classList.add("fa-star-o"); // to empty star
+let state = true;
+const toggleStar = (starElement, el, index) => {
+  if (state) {
+    console.log("mouse", state);
+    starElement.addEventListener("mouseover", () => {
+      const containerElement = document.querySelector(el);
+      for (let i = 0; i < containerElement.children.length; i++) {
+        if (i <= index) {
+          containerElement.children[i].classList.remove("fa-star");
+          containerElement.children[i].classList.remove("fa-star-o");
+          containerElement.children[i].classList.add("fa-star"); // to add filled star
+        } else {
+          // disable class "fa fa-star-o"
+          containerElement.children[i].classList.remove("fa-star");
+          containerElement.children[i].classList.remove("fa-star-o");
+          containerElement.children[i].classList.add("fa-star-o"); // to empty star
+        }
       }
-    }
-  });
-  starElement.addEventListener("mouseout", () => {
-    const containerElement = document.querySelector(el);
-    for (let i = 0; i < containerElement.children.length; i++) {
-      containerElement.children[i].classList.remove("fa-star");
-      containerElement.children[i].classList.remove("fa-star-o");
-      containerElement.children[i].classList.add("fa-star-o");
-    }
-  });
+    });
+    starElement.addEventListener("mouseout", () => {
+      const containerElement = document.querySelector(el);
+      for (let i = 0; i < containerElement.children.length; i++) {
+        containerElement.children[i].classList.remove("fa-star");
+        containerElement.children[i].classList.remove("fa-star-o");
+        containerElement.children[i].classList.add("fa-star-o");
+      }
+    });
+  }
 };
 
 const getNewStarElement = (index, callback, el) => {
@@ -36,6 +39,8 @@ const getNewStarElement = (index, callback, el) => {
   toggleStar(starElement, el, index);
 
   starElement.addEventListener("click", () => {
+    state = false;
+    console.log("click", state);
     callback(index + 1);
     // Update classes of starElements till index
     const containerElement = document.querySelector(el);
@@ -43,7 +48,6 @@ const getNewStarElement = (index, callback, el) => {
     for (let i = 0; i < containerElement.children.length; i++) {
       if (i <= index) {
         // enable class "fa fa-star"
-        console.log(i, index);
 
         containerElement.children[i].classList.remove("fa-star");
         containerElement.children[i].classList.remove("fa-star-o");
