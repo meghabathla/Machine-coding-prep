@@ -1,0 +1,45 @@
+.tabsContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-bottom: 1px solid rgb(111, 111, 114);
+}
+.verticalTab {
+  width: 30%;
+  height: 100%;
+  flex-direction: column;
+  border-bottom: none;
+  border-right: 1px solid rgb(111, 111, 114);
+}
+
+.vertical {
+  display: flex;
+  flex-direction: row;
+}
+
+.tabButton {
+  padding: 10px;
+  color: rgb(111, 111, 114);
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.inactive:hover {
+  padding-bottom: 8px;
+  border-bottom: 2px solid gray;
+  color: gray;
+}
+
+.active {
+  padding-bottom: 8px;
+  color: rgb(81, 47, 62);
+  border-bottom: 2px solid rgb(81, 47, 62);
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+}

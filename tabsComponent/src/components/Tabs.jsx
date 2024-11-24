@@ -1,31 +1,40 @@
 import React, { useState } from "react";
+import "../styles.css";
 
-const Tabs = (props) => {
-  console.log(props.tabs); //array
-  const [state, setState] = useState("");
+const Tabs = ({ tabs = [], isVertical = false }) => {
+  const [activeTabValue, setActiveTabValue] = useState("");
 
   const handleClick = (value) => {
-    setState(value);
+    setActiveTabValue(value);
   };
-  const filteredArray = props.tabs.filter((tab) => {
-    return tab.value === state;
-  });
+
+  const renderContent = () => {
+    const filteredArray = tabs.filter((tab) => tab.value === activeTabValue);
+    const content = filteredArray[0].content;
+
+    return content;
+  };
 
   return (
-    <div>
-      {props.tabs.map((tab) => {
-        return (
-          <button
-            key={tab.value}
-            onClick={() => handleClick(tab.value)}
-            className={state === tab.value ? tab.value : null}
-          >
-            {tab.value}
-          </button>
-        );
-      })}
+    <div className={`${isVertical ? "vertical" : null}`}>
+      <div className={`tabsContainer ${isVertical ? "verticalTab" : ""}`}>
+        {tabs.map((tab) => {
+          const isActive = activeTabValue === tab.value; // boolean
 
-      <p>{filteredArray[0]?.content}</p>
+          return (
+            <button
+              key={tab.value}
+              onClick={() => handleClick(tab.value)}
+              className={`tabButton ${isActive ? "active" : "inactive"}`}
+            >
+              {tab.value}
+            </button>
+          );
+        })}
+      </div>
+      <div className="contentContainer">
+        {activeTabValue ? <div>{renderContent()}</div> : null}
+      </div>
     </div>
   );
 };

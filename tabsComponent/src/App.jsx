@@ -20,11 +20,28 @@ const tabs = [
 ];
 
 function App() {
-  return (
-    <>
-      <Tabs tabs={tabs} />
-    </>
-  );
+  const parentTabs = [
+    {
+      value: "vertical",
+      content: (
+        <div>
+          <h4>Vertical Tabs</h4>
+          <Tabs tabs={tabs} isVertical />
+        </div>
+      ),
+    },
+    {
+      value: "horizontal",
+      content: (
+        <div>
+          <h4>Horizontal Tabs</h4>
+          <Tabs tabs={tabs} />
+        </div>
+      ),
+    },
+  ];
+
+  return <Tabs tabs={parentTabs} />;
 }
 
 export default App;
