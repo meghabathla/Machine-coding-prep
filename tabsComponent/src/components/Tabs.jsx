@@ -11,7 +11,6 @@ const Tabs = ({ tabs = [], isVertical = false }) => {
   const renderContent = () => {
     const filteredArray = tabs.filter((tab) => tab.value === activeTabValue);
     const content = filteredArray[0].content;
-
     return content;
   };
 
